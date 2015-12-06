@@ -67,7 +67,7 @@ module.exports.parse = function(file, enc) {
     var matches = content.match(AMD_REGEXP);
     parsedAMD.start        = matches[1];
     parsedAMD.name         = matches[2];
-    parsedAMD.dependencies = matches[3] ? matches[3].match(DEPS_REGEXP) : [];
+    parsedAMD.dependencies = matches[3] ? matches[3].match(DEPS_REGEXP) || [] : [];
     parsedAMD.arguments    = matches[4] !== undefined ? (matches[4] ? matches[4].match(DEPS_REGEXP) : []) : undefined;
     parsedAMD.end          = matches[5];
 
